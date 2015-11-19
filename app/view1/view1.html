@@ -1,0 +1,38 @@
+<div class="container">
+    <ng-form role="form" >
+        <div class="form-group">
+            <label for="realName">Echtname</label>
+            <input class="form-control" ng-model="view.name" type="text" id="realName"/>
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefonnummer</label>
+            <input class="form-control" ng-model="view.phone" type="number" id="phone"/>
+        </div>
+
+        <label for="phoneType">Art des Anschlusses</label>
+        <select id="phoneType" ng-model="view.phoneType" ng-init="view.phoneType = 'home'">
+            <option value="home">Home</option>
+            <option value="mobile">Mobile</option>
+            <option value="work">Work</option>
+        </select>
+        <input type="submit" class="btn btn-default" ng-click="addData()" value="Hinzufügen"/>
+    </ng-form>
+    <div ng-repeat="contact in model.data">
+        <div class="row">
+        <div class="col-lg-6">
+            <p><b>Name:</b> {{contact.realname}}</p>
+
+            <p><b>Rufnummer:</b> {{contact.phone}} {{contact.phoneType}} </p>
+        </div>
+        <button class="btn btn-default" ng-click="removeEntry($index)">Remove</button>
+        </div>
+        <hr>
+    </div>
+    <br>
+    <a href="{{model.download}}" download="phonebook.xml" class="btn btn-primary" target="_blank">Download book</a>
+    <br>
+
+    <div ng-click="clearData()" class="btn btn-danger">Leeren des Telephonbuchs</div>
+    <br>
+</div>
+<div ng-bind="model.download"></div>
