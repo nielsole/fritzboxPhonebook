@@ -6,7 +6,7 @@
         </div>
         <div class="form-group">
             <label for="phone">Telefonnummer</label>
-            <input class="form-control" ng-model="view.phone" type="number" id="phone"/>
+            <input class="form-control" ng-model="view.phone" type="text" id="phone"/>
         </div>
 
         <label for="phoneType">Art des Anschlusses</label>
@@ -20,9 +20,9 @@
     <div ng-repeat="contact in model.data">
         <div class="row">
         <div class="col-lg-6">
-            <p><b>Name:</b> {{contact.realname}}</p>
+            <p><b>Name:</b> <input ng-model="contact.realname"/></p>
 
-            <p><b>Rufnummer:</b> {{contact.phone}} {{contact.phoneType}} </p>
+            <p><b>Rufnummer:</b> <input ng-model="contact.phone"/> {{contact.phoneType}} </p>
         </div>
         <button class="btn btn-default" ng-click="removeEntry($index)">Remove</button>
         </div>

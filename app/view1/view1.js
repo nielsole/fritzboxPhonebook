@@ -9,7 +9,6 @@ angular.module('myApp.view1', ['ngRoute', 'ngSanitize', 'LocalStorageModule'])
   });
         localStorageServiceProvider
             .setPrefix('myApp')
-            .setStorageType('sessionStorage')
             .setNotify(true, true)
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|data|chrome-extension):/)
 }])
